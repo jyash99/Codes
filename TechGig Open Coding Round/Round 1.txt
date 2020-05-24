@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+public class prob3 {
+    public static void main(String args[] ) throws Exception {
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        ArrayList<Long> ingr = new ArrayList<Long>();
+        for(int i = 0; i < N; i++) {
+            ingr.add(scan.nextLong());
+        }
+        ArrayList<Long> quan = new ArrayList<Long>();
+        for(int i = 0; i < N; i++) {
+            quan.add(scan.nextLong());
+        }
+        int count = 0;
+        while(true) {
+            int c = 0;
+            for(int i = 0; i < N; i++) {
+                if(quan.get(i) == 0) {
+                    c = 1;
+                    break;
+                } else {
+                    long val = ingr.get(i);
+                    quan.set(i, quan.get(i) - val);
+                }
+            }
+            if(c == 1)
+                break;
+            count++;
+        }
+        System.out.println(count);
+    }
+}

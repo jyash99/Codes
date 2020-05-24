@@ -1,0 +1,20 @@
+import sys
+def main():
+    n = int(input())
+    while(n>0):
+        p = 0
+        count = 0
+        l = int(input())
+        arr = list(map(int,input().split()[:l]))
+        arr1 = list(map(int,input().split()[:l]))
+        arr.sort(reverse = True)
+        arr1.sort(reverse = True)
+        for i in range(l):
+            for j in range(p, l):
+                if(arr[i] > arr1[j]):
+                    count = count + 1
+                    p = j + 1
+                    break
+        print(count)
+        n -= 1
+main()
